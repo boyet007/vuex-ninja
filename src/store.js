@@ -10,8 +10,19 @@ export default new Vuex.Store({
       {name: 'Shiny Star', price: 40},
       {name: 'Green Shells', price: 60},
       {name: 'Red Shells', price: 80},
-      {name: 'buah mangga', price: 70}
+      {name: 'buah mangga' , price: 15}
     ]
+  },
+  getters: {
+    saleProducts: state=> {
+        var saleProduct = state.products.map(product => {
+              return {
+                name:'--' + product.name + '--' ,
+                price: product.price/2
+              }
+        });
+        return saleProduct;
+    }
   },
   mutations: {
 
